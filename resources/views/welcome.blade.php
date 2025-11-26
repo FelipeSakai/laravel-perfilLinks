@@ -6,7 +6,7 @@
     @vite('resources/css/app.css')
     <title>{{config('app.name')}}</title>
 </head>
-<body class="bg-red-900 text-slate-50 h-full">
+<body class="bg-green-300 text-slate-50 h-full">
 <h1 class="text-3xl font-bold ">
     Hello world!
 </h1>

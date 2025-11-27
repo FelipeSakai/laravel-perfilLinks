@@ -8,6 +8,7 @@
             </x-form>
 
             <x-slot:actions>
+                <x-a :href="route('register')">I need to create a new account!</x-a>
                 <x-button type="submit" form="login-form">Logar</x-button>
             </x-slot:actions>
 

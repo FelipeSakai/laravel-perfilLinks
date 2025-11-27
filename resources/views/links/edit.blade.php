@@ -1,37 +1,20 @@
 <x-layout.app>
-    <div>
-        <h1>Editar um link :: {{$link->id}}</h1>
 
-        @if($message = session()->get('message'))
-            <div>{{$message}}</div>
-        @endif
+    <x-container>
+        <x-card title="Editing link {{$link->id}}">
 
-        <form action="{{route('links.edit',$link) }}" method="post">
-            @csrf
+            <x-form :route="route('links.edit',$link)" put id="register-form">
+                <x-input name="link" placeholder="Link" value="{{ old('link', $link->link) }}"/>
+                <x-input name="name" placeholder="Name" value="{{ old('name', $link->link) }}"/>
 
-            @method('put')
+            </x-form>
 
-            <div>
-                <input name="link" placeholder="Link" value="{{ old('link',$link->link) }}"/>
-                @error('link')
-                <span>{{$message}}</span>
-                @enderror
-            </div>
+            <x-slot:actions>
+                <x-a :href="route('dashboard')">Cancel</x-a>
+                <x-button type="submit" form="form">Update Link</x-button>
+            </x-slot:actions>
 
-            <br>
-
-            <div>
-                <input name="name" placeholder="Name" value="{{ old('name',$link->name) }}"/>
-                @error('name')
-                <span>{{$message}}</span>
-                @enderror
-            </div>
-
-
-            <br>
-            <a href="{{route('dashboard')}}">Cancelar</a>
-            <button>Salvar</button>
-        </form>
-    </div>
+        </x-card>
+    </x-container>
 
 </x-layout.app>
